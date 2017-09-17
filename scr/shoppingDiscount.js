@@ -1,12 +1,13 @@
-function ShoppingDiscount() { }
-
 var Member = require('./members');
+var VIP = require('./VIP');
 
-ShoppingDiscount.prototype.DiscountCalculator = function (member, price) {
-    if (member === Member.VIP && price >= 500) {
-        return price * 0.8;
+class ShoppingDiscount {
+    DiscountCalculator(member, price) {
+        if (VIP.isDiscount(member, price)) {
+            return price * 0.8;
+        }
+        return price;
     }
-    return price;
-};
+}
 
 module.exports = ShoppingDiscount;
