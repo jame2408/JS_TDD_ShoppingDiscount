@@ -37,5 +37,18 @@ describe('ShoppingDiscount', () => {
             // Assert
             actual.should.equal(expected);
         });
+
+        it('VIP 使用者購買 499 元，不打折.', () => {
+            // Arrange
+            var price = 499;
+            var expected = 499;
+            var actual = 0;
+
+            // Act
+            actual = shoppingDiscount.DiscountCalculator(Member.VIP, price);
+            
+            // Assert
+            actual.should.equal(expected);
+        });
     });
 });
