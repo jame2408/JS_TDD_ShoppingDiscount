@@ -23,5 +23,20 @@ describe('ShoppingDiscount', () => {
             // Assert
             actual.should.equal(expected);
         });
+
+        it('VIP 使用者購買 500 元，打 8 折.', () => {
+            // Arrange
+            var price = 500;
+            var expected = 400;
+            var actual = 0;
+
+            var shoppingDiscount = new ShoppingDiscount();
+            
+            // Act
+            actual = shoppingDiscount.DiscountCalculator(Member.VIP, price);
+            
+            // Assert
+            actual.should.equal(expected);
+        });
     });
 });
