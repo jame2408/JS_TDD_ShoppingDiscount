@@ -1,8 +1,12 @@
 var Member = require('./members');
 
+const ForNormalDiscount = {
+    MinPrice: 1000,
+    MinProductCount: 4
+}
 var Normal = {
     isDiscount(member, price, count) {
-        return member === Member.Normal && price >= 1000 &&count > 3;
+        return member === Member.Normal && price >= ForNormalDiscount.MinPrice && count >= ForNormalDiscount.MinProductCount;
     }
 }
 
