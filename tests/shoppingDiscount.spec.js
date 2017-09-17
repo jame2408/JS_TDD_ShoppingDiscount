@@ -54,10 +54,10 @@ describe('ShoppingDiscount', () => {
             actual.should.equal(expected);
         });
 
-        it('一般使用者購買 1000 元且購買 3 件商品，打 85 折.', () => {
+        it('一般使用者購買 1000 元且購買超過 3 件商品，打 85 折.', () => {
             // Arrange
             var price = 1000;
-            var count = 3;
+            var count = 4;
             var expected = 850;
             var actual = 0;
             
