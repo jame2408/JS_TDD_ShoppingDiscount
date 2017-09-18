@@ -1,16 +1,17 @@
 var Member = require('./members');
-var VIP = require('./VIP');
+var Vip = require('./VIP');
 var Normal = require('./Normal');
 
 class ShoppingDiscount {
     DiscountCalculator(member, price, count) {
-        
-        if (VIP.isDiscount(member, price)) {
-            return price * 0.8;
+        var vip = new Vip(member, price);
+        if (vip.isDiscount()) {
+            return vip.discountPrice();
         }
 
-        if (Normal.isDiscount(member, price, count)) {
-            return price * 0.85;
+        var normal = new Normal(member, price, count)
+        if (normal.isDiscount()) {
+            return normal.discountPrice();
         }
 
         return price;
