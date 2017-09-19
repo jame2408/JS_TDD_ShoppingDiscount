@@ -12,9 +12,9 @@ class VIP {
     isDiscount() {
         return this.member === Member.VIP && this.price >= ForVIPDiscount.MinPrice;
     };
-    discountPrice() {
-        return this.price * ForVIPDiscount.Discount;
-    }
+    isDiscountPrice() {
+        return this.isDiscount() ? this.price * ForVIPDiscount.Discount : this.price;
+    };
 }
 
 module.exports = VIP;

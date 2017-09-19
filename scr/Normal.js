@@ -11,12 +11,12 @@ class Normal {
         this.price = price;
         this.count = count;
     };
-    isDiscount(member, price, count) {
+    isDiscount() {
         return this.member === Member.Normal && this.price >= ForNormalDiscount.MinPrice && this.count >= ForNormalDiscount.MinProductCount;
     };
-    discountPrice() {
-        return this.price * ForNormalDiscount.Discount;
-    }
+    isDiscountPrice() {
+        return this.isDiscount() ? this.price * ForNormalDiscount.Discount : this.price;
+    };
 }
 
 module.exports = Normal;
